@@ -1,4 +1,9 @@
 # Instalação
+
+## Recomendações
+
+- Ubuntu 22
+
 ## Pré-requisitos
 
 - curl
