@@ -1,0 +1,82 @@
+syntax = "proto3";
+
+package msnzinho;
+
+
+service Msnzinho {
+  rpc CriaCanal (CriaCanalRequest) returns (CriaCanalResponse); 
+  rpc DeletaCanal (DeletaCanalRequest) returns (DeletaCanalResponse);
+  rpc ListarCanais (ListarCanaisRequest) returns (ListarCanaisResponse);
+  rpc PublicarMsg (PublicarMsgRequest) returns (PublicarMsgResponse);
+  rpc EntrarCanal (EntrarCanalRequest) returns (EntrarCanalResponse);
+  
+}
+
+//Messages
+message CriaCanalRequest {
+  string name = 1;
+  TipoCanal tipo = 2;
+ 
+}
+
+message CriaCanalResponse {
+  bool sucess = 1;
+ 
+}
+
+message DeletaCanalRequest {
+  string name = 1;
+  TipoCanal tipo = 2;
+ 
+}
+
+message DeletaCanalResponse {
+  bool sucess = 1;
+ 
+}
+
+message ListarCanaisRequest {}
+
+message ListarCanaisResponse {
+  repeated infoCanal canais = 1;
+     
+}
+
+message ListarCanaisResponse {
+  repeated infoCanal canais = 1;
+     
+}
+
+message InfoCanal1 {
+  repeated infoCanal canais = 1;
+     string name = 1;
+     TipoCanal tipo = 2;
+     in32 mensagens_pendentes = 3; //máx
+}
+
+message PublicarMsgRequest {
+  string nome_canal = 1;
+  bytes conteudo = 2;
+ 
+}
+
+message PublicarMsgResponse {
+  bool sucess = 1;
+ 
+}
+
+message EntrarCanalRequest {
+  string nome_canal = 1;
+  int32 timeout = 2;
+ 
+}
+
+message Mensagem {
+  bytes conteudo = 1;
+}
+
+enum TipoCanal {
+  SIMPLES = 0;
+  MULTIPLO = 1;
+
+}
